@@ -38,7 +38,7 @@ tensor([[0.5572, 0.2308, 0.5311, 0.5901, 0.9444],
  0.1552547812461853
 [torch.storage.TypedStorage(dtype=torch.float32, device=cpu) of size 15]
 ```
-
+## Tensors
 is_tensor()  :obj是否为tensor
 
 is_storage() :obj是否为storage
@@ -60,7 +60,7 @@ numel(): 返回输入张量的元素个数
 
 set_printoptions(): 设置打印格式，可以设置精度，等等吧
 
-
+## Creation Ops
 tensor(): 创建一个张量
 
 创建一个稀疏矩阵：
@@ -104,3 +104,160 @@ tensor(): 创建一个张量
 ![alt text](./image/20.png)
 ![alt text](./image/21.png)
 ![alt text](./image/22.png)
+
+## Indexing, Slicing, Joining, Mutating Ops
+
+argwhere(): 返回非零元素的索引
+
+cat(): 组合输入的张量，所有的张量应该在期望的维度上有相同的尺寸。
+
+concat()，concatenate()是cat()的一个别名
+
+split(): 切分张量
+![alt text](./image/23.png)
+chunk(): 维度除分块数--->向上取整
+![alt text](./image/24.png)
+column_stack():在列上进行堆叠
+
+* dsplit():
+* dstack():
+* hsplit():
+* hstack():
+
+permuted(): 返回一个input维度转换后的视图。
+![alt text](./image/25.png)
+reshape():
+
+* split():
+* stack():
+* vsplit():
+* vstack()
+
+squeeze(): 删除尺寸为1的维度并返回
+![alt text](./image/26.png)
+unsqueeze(): 增加尺寸为1的维度并返回
+![alt text](./image/27.png)
+
+transpose(): 交换维度
+![alt text](./image/28.png)
+
+![alt text](./image/29.png)
+
+![alt text](./image/30.png)
+
+![alt text](./image/31.png)
+
+
+## Random sampling
+seed(): 设置随机种子
+![alt text](./image/36.png)
+
+save():	
+Saves an object to a disk file.
+```
+# Save to file
+x = torch.tensor([0, 1, 2, 3, 4])
+torch.save(x, 'tensor.pt')
+# Save to io.BytesIO buffer
+buffer = io.BytesIO()
+torch.save(x, buffer)
+```
+load():
+Loads an object saved with torch.save() from a file.
+
+intra-op: 算子内并行
+
+inter-op：算子间并行
+![alt text](./image/32.png)
+
+设置梯度
+![alt text](./image/33.png)
+
+## Math operations
+abs():
+
+acos():
+
+acosh():
+
+add():
+![alt text](./image/34.png)
+
+ceil(): 向上取整
+floor(): 向下取整
+round(): 四舍五入
+
+clamp(): 数据预处理上下限
+torch.clamp(input, min=None, max=None, *, out=None) → Tensor
+clip()是clamp()的别名
+
+div(): 输入除others
+![alt text](./image/35.png)
+divide()是div()的别名
+
+exp():  e的input_i次方
+exp2()  2的input_i次方
+
+log():
+log10():
+log2():
+
+mul(): 矩阵乘法
+sign(): 符号函数
+
+sigmoid():
+softmax():
+
+sin(): 正弦函数
+sinh()： 双曲正弦函数
+
+
+sqrt(): 开方
+square(): 平方
+sub(): 减
+div(): 除
+
+max(): 返回最大值
+min(): 返回最小值
+
+argmax(): 返回最大值的维度
+argmin(): 返回最小值的维度
+
+amax(): 返回最大值
+amin(): 返回最小值
+
+aminmax(): 返回最大最小值
+
+all():
+any():
+
+mean(): 返回均值
+nanmean(): 去掉nan值的均值
+median():
+nanmedian():
+
+std: 计算标准差
+std_mean(): 计算均值和标准差
+
+sum():
+unique(): 去掉重复元素
+
+
+eq()：
+equal():
+ge():  >=
+gt():  >
+le(): <=
+lt(): <
+diff():
+
+clone():
+detach():
+
+
+flatten():
+dot(): 两个矩阵相乘。
+
+
+
+
